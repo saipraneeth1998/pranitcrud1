@@ -1,7 +1,7 @@
 from flask import Flask
 import logging
 app = Flask(__name__)
-logging.basicConfig(filename='/var/log/flask.log', level=logging.INFO)
+logging.basicConfig(filename='/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log', level=logging.INFO)
 @app.route('/')
 def hello_world():
     return 'hello World From Srinath'
