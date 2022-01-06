@@ -5,15 +5,15 @@ import mysql.connector
 app = Flask(__name__)
 
 
-app.config['MYSQL_HOST'] = ''
-app.config['MYSQL_USER'] = ''
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_HOST'] = 'srcawpp8na1zt4.caomyyms75ok.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_USER'] = 'admin'
+app.config['MYSQL_PASSWORD'] = 'admin123'
 app.config['MYSQL_DB'] ='regform'
 
 mydb = mysql.connector.connect(
-  host="",
-  user="",
-  password=""
+  host="srcawpp8na1zt4.caomyyms75ok.us-east-1.rds.amazonaws.com",
+  user="admin",
+  password="admin123"
 )
 
 mycursor = mydb.cursor()
@@ -22,9 +22,9 @@ mycursor.execute("CREATE DATABASE regform")
 
 
 mydb = mysql.connector.connect(
-  host="",
-  user="",
-  password="",
+  host="srcawpp8na1zt4.caomyyms75ok.us-east-1.rds.amazonaws.com",
+  user="admin",
+  password="admin123",
   database="regform"
 )
 
