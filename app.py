@@ -6,32 +6,32 @@ import logging
 app = Flask(__name__)
 logging.basicConfig(filename='flask.log', level=logging.INFO,format='%(levelname)s:%(message)s')
 
-app.config['MYSQL_HOST'] = 'my-database-mysql.caomyyms75ok.us-east-1.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'admin'
-app.config['MYSQL_PASSWORD'] = 'admin123'
-app.config['MYSQL_DB'] ='regform'
+app.config['MYSQL_HOST'] = 'db1.caomyyms75ok.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_USER'] = 'Praneeth'
+app.config['MYSQL_PASSWORD'] = '123456789'
+app.config['MYSQL_DB'] ='form'
 
 mydb = mysql.connector.connect(
-  host="my-database-mysql.caomyyms75ok.us-east-1.rds.amazonaws.com",
-  user="admin",
-  password="admin123"
+  host="db1.caomyyms75ok.us-east-1.rds.amazonaws.com",
+  user="Praneeth",
+  password="123456789"
 )
 
 mycursor = mydb.cursor()
 
-mycursor.execute("CREATE DATABASE regform")
+mycursor.execute("CREATE DATABASE form")
 
 
 mydb = mysql.connector.connect(
-  host="my-database-mysql.caomyyms75ok.us-east-1.rds.amazonaws.com",
-  user="admin",
-  password="admin123",
-  database="regform"
+  host="db1.caomyyms75ok.us-east-1.rds.amazonaws.com",
+  user="Praneeth",
+  password="123456789",
+  database="form"
 )
 
 mycursor = mydb.cursor()
 
-mycursor.execute("CREATE TABLE userdata(name VARCHAR(150), age INT(3), email VARCHAR(150), mobile VARCHAR(10), location VARCHAR(100));")
+mycursor.execute("CREATE TABLE userdata(name VARCHAR(150), age INT(3), email VARCHAR(150), mobile VARCHAR(10));")
 
 
 mysql = MySQL(app)
@@ -46,9 +46,8 @@ def index():
         age = details['age']
         email = details['email']
         mobile = details['mobile']
-        location = details['location']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO userdata(name, age, email, mobile, location) VALUES (%s, %s, %s, %s, %s)", (name, age, email, mobile, location))
+        cur.execute("INSERT INTO userdata(name, age, email, mobile) VALUES (%s, %s, %s, %s, %s)", (name, age, email, mobile))
         mysql.connection.commit()
         cur.close()
         return 'success'
