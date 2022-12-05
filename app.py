@@ -9,7 +9,7 @@ logging.basicConfig(filename='flask.log', level=logging.INFO,format='%(levelname
 app.config['MYSQL_HOST'] = 'db1.caomyyms75ok.us-east-1.rds.amazonaws.com'
 app.config['MYSQL_USER'] = 'Praneeth'
 app.config['MYSQL_PASSWORD'] = '123456789'
-app.config['MYSQL_DB'] ='form'
+app.config['MYSQL_DB'] ='STUDENTS'
 
 mydb = mysql.connector.connect(
   host="db1.caomyyms75ok.us-east-1.rds.amazonaws.com",
@@ -19,14 +19,14 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("CREATE DATABASE form")
+mycursor.execute("CREATE DATABASE STUDENTS")
 
 
 mydb = mysql.connector.connect(
   host="db1.caomyyms75ok.us-east-1.rds.amazonaws.com",
   user="Praneeth",
   password="123456789",
-  database="form"
+  database="STUDENTS"
 )
 
 mycursor = mydb.cursor()
