@@ -47,7 +47,7 @@ def index():
         email = details['email']
         mobile = details['mobile']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO userdata(name, age, email, mobile) VALUES (%s, %s, %s, %s, %s)", (name, age, email, mobile))
+        cur.execute("INSERT INTO userdata(name, age, email, mobile) VALUES (%s, %s, %s, %s)", (name, age, email, mobile))
         mysql.connection.commit()
         cur.close()
         return 'success'
